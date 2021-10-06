@@ -39,17 +39,17 @@ resource "aws_route53_record" "clerk-fe-api" {
   records = ["frontend-api.clerk.services"]
 }
 
-resource "aws_route53_record" "clerk-s1" {
+resource "aws_route53_record" "clerk-dkim1" {
   zone_id = var.zone_id
-  name    = "s1._domainkey"
+  name    = "clk._domainkey"
   type    = "CNAME"
   ttl     = "300"
   records = ["dkim1.${var.clerk_id}.clerk.services"]
 }
 
-resource "aws_route53_record" "clerk-s2" {
+resource "aws_route53_record" "clerk-dkim2" {
   zone_id = var.zone_id
-  name    = "s2._domainkey"
+  name    = "clk2._domainkey"
   type    = "CNAME"
   ttl     = "300"
   records = ["dkim2.${var.clerk_id}.clerk.services"]
