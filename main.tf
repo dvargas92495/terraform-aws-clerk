@@ -15,6 +15,11 @@ variable "clerk_id" {
   type = string
 }
 
+variable "subdomain" {
+  type = string
+  default = ""
+}
+
 resource "aws_route53_record" "clerk-accounts" {
   zone_id = var.zone_id
   name    = "accounts"
@@ -33,7 +38,7 @@ resource "aws_route53_record" "clerk-fe" {
 
 resource "aws_route53_record" "clerk-fe-api" {
   zone_id = var.zone_id
-  name    = "clerk.api"
+  name    = "clerk.api${length(subdomain) > 0 ? ".${subdomain}" : ""}"
   type    = "CNAME"
   ttl     = "300"
   records = ["frontend-api.clerk.services"]
