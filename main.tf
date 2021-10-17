@@ -38,7 +38,7 @@ resource "aws_route53_record" "clerk-fe" {
 
 resource "aws_route53_record" "clerk-fe-api" {
   zone_id = var.zone_id
-  name    = "clerk.api${length(subdomain) > 0 ? ".${subdomain}" : ""}"
+  name    = "clerk.api${length(var.subdomain) > 0 ? ".${var.subdomain}" : ""}"
   type    = "CNAME"
   ttl     = "300"
   records = ["frontend-api.clerk.services"]
