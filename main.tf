@@ -62,7 +62,7 @@ resource "aws_route53_record" "clerk-dkim2" {
 
 resource "aws_route53_record" "clerk-mail" {
   zone_id = var.zone_id
-  name    = "mail"
+  name    = "clkmail"
   type    = "CNAME"
   ttl     = "300"
   records = ["mail.${var.clerk_id}.clerk.services"]
