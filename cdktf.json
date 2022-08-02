@@ -1,0 +1,14 @@
+{
+  "language": "typescript",
+  "app": "echo noop",
+  "sendCrashReports": "false",
+  "terraformModules": [
+    {
+      "name": "aws-clerk",
+      "source": "dvargas92495/clerk/aws",
+      "version": "1.0.4"
+    }
+  ],
+  "codeMakerOutput": "src",
+  "projectId": "742a687e-6cae-490e-ae99-eb78761f4726"
+}
